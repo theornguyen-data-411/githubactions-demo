@@ -1,0 +1,12 @@
+name: Deploy Application
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        run: |
+          echo "Cloning repository..."
+          echo "Repository: ${{ toJson(github)}}"
+          git clone https://github.com/${{github.repository}}.git my-repo
+          cd my-repo && ls
